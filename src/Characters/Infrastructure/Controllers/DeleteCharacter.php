@@ -2,8 +2,8 @@
 
 namespace App\Characters\Infrastructure\Controllers;
 
+use App\Characters\Application\Commands\DeleteCharacter as DeleteCharacterCommand;
 use App\Characters\Domain\ValueObjects\CharacterId;
-use App\Characters\Infrastructure\Services\CharacterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +13,7 @@ use OpenApi\Attributes as OA;
 class DeleteCharacter extends AbstractController
 {
     public function __construct(
-        private readonly CharacterService $characterService,
+        private readonly DeleteCharacterCommand $deleteCharacter,
     ) {
     }
 
@@ -24,7 +24,7 @@ class DeleteCharacter extends AbstractController
     )]
     public function handle(string $id): Response
     {
-        $this->characterService->delete(CharacterId::fromString($id));
+        $this->deleteCharacter->handle(CharacterId::fromString($id));
 
         return new Response(status: Response::HTTP_NO_CONTENT);
     }

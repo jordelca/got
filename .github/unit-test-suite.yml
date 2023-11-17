@@ -5,7 +5,7 @@ on:
   pull_request:
     types: [ opened, synchronize, ready_for_review, reopened ]
     branches:
-      - master
+      - main
 
 jobs:
   phpunit:

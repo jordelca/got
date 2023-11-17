@@ -4,14 +4,15 @@ namespace App\Characters\Application\Queries;
 
 use App\Characters\Infrastructure\Services\CharacterService;
 
-class ListCharacters
+class SearchCharacters
 {
     public function __construct(public readonly CharacterService $characterService)
     {
     }
 
-    public function handle(): array
-    {
-        return $this->characterService->list();
+    public function handle(
+        string $key,
+    ): array {
+        return $this->characterService->search($key);
     }
 }

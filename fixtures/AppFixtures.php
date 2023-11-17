@@ -54,7 +54,7 @@ class AppFixtures extends Fixture
 
             $this->createCharacter->handle(
                 Character::new(
-                    CharacterId::fromString(Uuid::v4()),
+                    CharacterId::generate(),
                     CharacterName::fromString($gotCharacter->characterName ?? ''),
                     CharacterNickname::fromString($gotCharacter->nickname ?? ''),
                     CharacterLink::fromString($gotCharacter->characterLink ?? ''),

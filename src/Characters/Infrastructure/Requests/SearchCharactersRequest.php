@@ -2,7 +2,7 @@
 
 namespace App\Characters\Infrastructure\Requests;
 
-class SearchCharacterRequest extends BaseRequest
+class SearchCharactersRequest extends BaseRequest
 {
     protected string $key;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Characters\Infrastructure\Controllers;
 
+use App\Characters\Application\Commands\CreateCharacter as CreateCharacterCommand;
 use App\Characters\Domain\Entity\Character;
 use App\Characters\Domain\ValueObjects\CharacterActors;
 use App\Characters\Domain\ValueObjects\CharacterAllies;
@@ -11,7 +12,6 @@ use App\Characters\Domain\ValueObjects\CharacterName;
 use App\Characters\Domain\ValueObjects\CharacterNickname;
 use App\Characters\Domain\ValueObjects\ImageLink;
 use App\Characters\Infrastructure\Requests\CreateCharacterRequest;
-use App\Characters\Infrastructure\Services\CharacterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +20,7 @@ use OpenApi\Attributes as OA;
 class CreateCharacter extends AbstractController
 {
     public function __construct(
-        private readonly CharacterService $characterService,
+        private readonly CreateCharacterCommand $createCharacter,
     ) {
     }
 
@@ -33,7 +33,7 @@ class CreateCharacter extends AbstractController
     {
         $requestBody = json_decode($request->getRequest()->getContent());
 
-        $this->characterService->create(
+        $this->createCharacter->handle(
             Character::new(
                 CharacterId::fromString($requestBody->id),
                 CharacterName::fromString($requestBody->characterName),

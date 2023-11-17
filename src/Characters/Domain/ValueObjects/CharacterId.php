@@ -2,6 +2,8 @@
 
 namespace App\Characters\Domain\ValueObjects;
 
+use Symfony\Component\Uid\Uuid;
+
 class CharacterId
 {
     private function __construct(public readonly string $id)
@@ -15,6 +17,6 @@ class CharacterId
 
     public static function generate(): self
     {
-        return new self(sprintf('ch%07d', rand(0, 999999)));
+        return new self(Uuid::v4());
     }
 }

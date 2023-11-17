@@ -2,18 +2,20 @@
 
 namespace App\Characters\Application\Commands;
 
-use App\Characters\Domain\CharacterRepositoryInterface;
 use App\Characters\Domain\ValueObjects\CharacterId;
+use App\Characters\Infrastructure\Services\CharacterService;
 
 class DeleteCharacter
 {
-    public function __construct(public readonly CharacterRepositoryInterface $characterRepository)
+    public function __construct(public readonly CharacterService $characterService)
     {
     }
 
     public function handle(
         CharacterId $characterId,
     ): void {
-        $this->characterRepository->delete($characterId);
+        $this->characterService->delete(
+            $characterId,
+        );
     }
 }

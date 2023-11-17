@@ -23,9 +23,18 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Characters\Application\Queries\SearchCharacter:
+    App\Characters\Infrastructure\Services\CharacterService:
         arguments:
             $finder: '@fos_elastica.finder.characters'
+
+    App\Characters\Application\Commands\CreateCharacter:
+        public: true
+
+    App\Characters\Application\Commands\UpdateCharacter:
+        public: true
+
+    App\Characters\Application\Commands\DeleteCharacter:
+        public: true
 
     DataFixtures\:
         resource: '../fixtures'

@@ -3,16 +3,16 @@
 namespace App\Characters\Infrastructure\Controllers;
 
 use App\Characters\Infrastructure\Entity\Character;
-use App\Characters\Infrastructure\Requests\SearchCharacterRequest;
+use App\Characters\Infrastructure\Requests\SearchCharactersRequest;
 use App\Characters\Infrastructure\Resources\CharacterResource;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Characters\Application\Queries\SearchCharacter as SearchCharacterQuery;
+use App\Characters\Application\Queries\SearchCharacters as SearchCharacterQuery;
 use OpenApi\Attributes as OA;
 
-class SearchCharacter extends AbstractController
+class SearchCharacters extends AbstractController
 {
     public function __construct(
         private readonly SearchCharacterQuery $searchCharacter,
@@ -41,7 +41,7 @@ class SearchCharacter extends AbstractController
             ),
         ),
     )]
-    public function handle(SearchCharacterRequest $request): Response
+    public function handle(SearchCharactersRequest $request): Response
     {
         $requestBody = json_decode($request->getRequest()->getContent());
 

@@ -4,6 +4,7 @@ namespace App\Characters\Infrastructure\Repository;
 
 use App\Actors\Infrastructure\Entity\Actor;
 use App\Characters\Domain\CharacterRepositoryInterface;
+use App\Characters\Domain\Exceptions\CharacterNotFound;
 use App\Characters\Domain\ValueObjects\CharacterActors;
 use App\Characters\Domain\ValueObjects\CharacterId;
 use App\Characters\Domain\ValueObjects\CharacterName;
@@ -12,6 +13,7 @@ use App\Characters\Infrastructure\Entity\Character;
 use App\Characters\Domain\Entity\Character as DomainCharacter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 
 class CharacterRepository implements CharacterRepositoryInterface
 {
@@ -47,9 +49,13 @@ class CharacterRepository implements CharacterRepositoryInterface
             ->findOneBy(['name' => $characterName->name]);
     }
 
+    /**
+     * @throws CharacterNotFound
+     */
     public function update(DomainCharacter $character): void
     {
-        $doctrineCharacter = $this->entityManager->find(Character::class, $character->characterId->id);
+        $doctrineCharacter = $this->findCharacterOrFail($character->characterId);
+
         $doctrineCharacter = $this->setProperties($doctrineCharacter, $character);
         $doctrineCharacter = $this->setAllies($doctrineCharacter, $character->allies);
         $doctrineCharacter = $this->setActors($doctrineCharacter, $character->actors);
@@ -58,9 +64,12 @@ class CharacterRepository implements CharacterRepositoryInterface
         $this->entityManager->flush();
     }
 
+    /**
+     * @throws CharacterNotFound
+     */
     public function delete(CharacterId $characterId): void
     {
-        $doctrineCharacter = $this->entityManager->find(Character::class, $characterId->id);
+        $doctrineCharacter = $this->findCharacterOrFail($characterId);
 
         $this->entityManager->remove($doctrineCharacter);
         $this->entityManager->flush();
@@ -102,5 +111,20 @@ class CharacterRepository implements CharacterRepositoryInterface
         );
 
         return $doctrineCharacter;
+    }
+
+    /**
+     * @param CharacterId $characterId
+     * @return Character
+     * @throws CharacterNotFound
+     */
+    public function findCharacterOrFail(CharacterId $characterId): Character
+    {
+        $result = $this->entityManager->find(Character::class, $characterId->id);
+        if (is_null($result)) {
+            throw new CharacterNotFound();
+        }
+
+        return $result;
     }
 }

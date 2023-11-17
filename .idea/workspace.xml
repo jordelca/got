@@ -5,9 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8e2b116-a743-44b1-9917-2d3c240fc2af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/test/elasticsearch.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Characters/Application/Queries/SearchCharacters.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Characters/Domain/Exceptions/CharacterNotFound.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Actors/CreateActorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Characters/Infrastructure/Controllers/CreateCharacterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Characters/Infrastructure/Controllers/DeleteCharacterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Characters/Infrastructure/Controllers/ListCharactersTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Characters/Infrastructure/Controllers/SearchCharactersTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Characters/Infrastructure/Controllers/UpdateCharacterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Characters/Infrastructure/Services/CharacterServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Actors/Domain/ValueObjects/ActorId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actors/Domain/ValueObjects/ActorId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Application/Commands/CreateCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Application/Commands/CreateCharacter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Application/Commands/DeleteCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Application/Commands/DeleteCharacter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Application/Commands/UpdateCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Application/Commands/UpdateCharacter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Application/Queries/ListCharacters.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Application/Queries/ListCharacters.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Application/Queries/SearchCharacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Domain/ValueObjects/CharacterId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Domain/ValueObjects/CharacterId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/CreateCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/CreateCharacter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/DeleteCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/DeleteCharacter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/SearchCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/SearchCharacters.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/UpdateCharacter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Controllers/UpdateCharacter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Migrations/Version20231114185102.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Migrations/Version20231114185102.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Repository/CharacterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Repository/CharacterRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Requests/SearchCharacterRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Requests/SearchCharactersRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Infrastructure/Services/CharacterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Infrastructure/Services/CharacterService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Integration/Characters/DeleteCharacterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/Characters/DeleteCharacterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Integration/Characters/UpdateCharacterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/Characters/UpdateCharacterTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +204,8 @@
       <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
       <path value="$PROJECT_DIR$/vendor/react/promise" />
       <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -257,7 +290,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/tests/Integration/Characters/DeleteCharacterTest.php</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
