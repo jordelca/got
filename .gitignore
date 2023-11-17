@@ -25,7 +25,7 @@
 
 ###> Others ###
 .db
-./esdata
+esdata
 .coverage
 ###< Others ###
 
