@@ -45,10 +45,10 @@ http://localhost/api/doc.json
 ### Elasticsearch
 http://localhost:9200
 
-### Elasticsearch Head
+### Elasticvue
 http://localhost:8080/
 
-### RabbitMQ
+### RabbitMQ (guest/guest)
 http://localhost:15672
 
 ### Note
