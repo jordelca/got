@@ -23,9 +23,11 @@
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 
-###> Docker volumes ###
+###> Others ###
 .db
-###< intellij ###
+./esdata
+.coverage
+###< Others ###
 
 ###> intellij ###
 .idea
