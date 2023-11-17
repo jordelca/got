@@ -13,7 +13,6 @@ use App\Characters\Infrastructure\Entity\Character;
 use App\Characters\Domain\Entity\Character as DomainCharacter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 
 class CharacterRepository implements CharacterRepositoryInterface
 {
@@ -114,8 +113,6 @@ class CharacterRepository implements CharacterRepositoryInterface
     }
 
     /**
-     * @param CharacterId $characterId
-     * @return Character
      * @throws CharacterNotFound
      */
     public function findCharacterOrFail(CharacterId $characterId): Character

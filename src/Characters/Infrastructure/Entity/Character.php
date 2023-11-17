@@ -201,6 +201,16 @@ class Character
         $this->allies = $allies;
     }
 
+    public function getAlliesWithMe(): Collection
+    {
+        return $this->alliesWithMe;
+    }
+
+    public function setAlliesWithMe(Collection $alliesWithMe): void
+    {
+        $this->alliesWithMe = $alliesWithMe;
+    }
+
     public function getGuardedBy(): Collection
     {
         return $this->guardedBy;

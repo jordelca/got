@@ -18,7 +18,6 @@ use App\Characters\Infrastructure\Services\CharacterService;
 use FOS\ElasticaBundle\Finder\FinderInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Messenger\MessageBus;
-use Mockery;
 use Mockery\MockInterface;
 use Symfony\Component\Messenger\TraceableMessageBus;
 
@@ -26,15 +25,15 @@ class CharacterServiceTest extends TestCase
 {
     private CharacterService $characterService;
     private TraceableMessageBus $messageBusInterface;
-    private MockInterface & CharacterRepository $characterRepository;
-    private MockInterface & FinderInterface $finderInterface;
+    private MockInterface&CharacterRepository $characterRepository;
+    private MockInterface&FinderInterface $finderInterface;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->messageBusInterface = new TraceableMessageBus(new MessageBus());
-        $this->characterRepository = Mockery::mock(CharacterRepository::class);
-        $this->finderInterface = Mockery::mock(FinderInterface::class);
+        $this->characterRepository = \Mockery::mock(CharacterRepository::class);
+        $this->finderInterface = \Mockery::mock(FinderInterface::class);
         $this->characterService = new CharacterService(
             $this->messageBusInterface,
             $this->characterRepository,
@@ -89,7 +88,6 @@ class CharacterServiceTest extends TestCase
 
         $this->assertNotEmpty($messages);
         $this->assertInstanceOf(CharacterCreated::class, $messages[0]['message']);
-
     }
 
     /**
@@ -128,10 +126,6 @@ class CharacterServiceTest extends TestCase
         $this->assertInstanceOf(CharacterDeleted::class, $messages[0]['message']);
     }
 
-
-    /**
-     * @return Character
-     */
     public function getCharacter(): Character
     {
         return Character::new(

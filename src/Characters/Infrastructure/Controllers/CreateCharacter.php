@@ -39,15 +39,15 @@ class CreateCharacter extends AbstractController
                 CharacterName::fromString($requestBody->characterName),
                 CharacterNickname::fromString($requestBody->nickname),
                 CharacterLink::fromString($requestBody->characterLink),
-                isset($gotCharacter->characterImageThumb)
-                    ? ImageLink::fromString($gotCharacter->characterImageThumb) : null,
-                isset($gotCharacter->characterImageFull)
-                    ? ImageLink::fromString($gotCharacter->characterImageFull) : null,
+                isset($requestBody->characterImageThumb)
+                    ? ImageLink::fromString($requestBody->characterImageThumb) : null,
+                isset($requestBody->characterImageFull)
+                    ? ImageLink::fromString($requestBody->characterImageFull) : null,
                 CharacterAllies::empty(),
                 CharacterActors::empty(),
                 $requestBody->houses,
-                $gotCharacter->royal ?? false,
-                $gotCharacter->kingsguard ?? false,
+                $requestBody->royal ?? false,
+                $requestBody->kingsguard ?? false,
             ),
         );
 

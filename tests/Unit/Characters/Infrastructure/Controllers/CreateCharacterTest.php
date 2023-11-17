@@ -6,7 +6,6 @@ use App\Characters\Application\Commands\CreateCharacter as CreateCharacterComman
 use App\Characters\Infrastructure\Controllers\CreateCharacter;
 use App\Characters\Infrastructure\Requests\CreateCharacterRequest;
 use PHPUnit\Framework\TestCase;
-use Mockery;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -18,9 +17,9 @@ class CreateCharacterTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $validator = Mockery::mock(ValidatorInterface::class);
+        $validator = \Mockery::mock(ValidatorInterface::class);
         $validator->shouldReceive('autoValidateRequest')->andReturn(false);
-        $command = Mockery::mock(CreateCharacterCommand::class);
+        $command = \Mockery::mock(CreateCharacterCommand::class);
         $command->shouldReceive('handle');
         $this->createCharacter = new CreateCharacter($command);
     }
@@ -40,12 +39,9 @@ class CreateCharacterTest extends TestCase
         $this->assertEquals(Response::HTTP_NO_CONTENT, $response->getStatusCode());
     }
 
-    /**
-     * @return CreateCharacterRequest
-     */
     public function getRequest(): CreateCharacterRequest
     {
-        $request = Mockery::mock(CreateCharacterRequest::class);
+        $request = \Mockery::mock(CreateCharacterRequest::class);
         $request->shouldReceive('getRequest')
             ->andReturn(new Request(content: json_encode($this->getContent())));
 
@@ -59,7 +55,7 @@ class CreateCharacterTest extends TestCase
             'characterName' => 'Rodrik Cassel',
             'nickname' => 'Rodrik Cassel',
             'characterLink' => 'Rodrik Cassel',
-            'houses' => ['House 1', 'House 2']
+            'houses' => ['House 1', 'House 2'],
         ];
     }
 }
