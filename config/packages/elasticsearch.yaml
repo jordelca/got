@@ -1,0 +1,18 @@
+fos_elastica:
+    clients:
+        default: { host: elastic, port: 9200 }
+    indexes:
+        characters:
+            persistence:
+                elastica_to_model_transformer:
+                    ignore_missing: true
+                driver: orm
+                model: App\Characters\Infrastructure\Entity\Character
+                listener:
+                    insert: true
+                    update: true
+                    delete: true
+
+            properties:
+                id: ~
+                name: ~

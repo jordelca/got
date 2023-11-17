@@ -1,0 +1,13 @@
+includes:
+	- vendor/phpstan/phpstan-symfony/extension.neon
+	- vendor/phpstan/phpstan-symfony/rules.neon
+
+parameters:
+    level: 4
+    paths:
+        - src
+    excludePaths:
+        - tests/tmp/*
+        - tests/*/Example*.php
+        - tests/*/console_application_loader.php
+        - tests/*/data/*

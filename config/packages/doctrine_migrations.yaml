@@ -1,0 +1,6 @@
+doctrine_migrations:
+    migrations_paths:
+        'DoctrineMigrations': '%kernel.project_dir%/migrations'
+        'App\Actors\Infrastructure\Migrations': '%kernel.project_dir%/src/Actors/Infrastructure/Migrations'
+        'App\Characters\Infrastructure\Migrations': '%kernel.project_dir%/src/Characters/Infrastructure/Migrations'
+    enable_profiler: false

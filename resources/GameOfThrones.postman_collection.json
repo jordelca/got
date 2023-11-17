@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "337e905e-121d-4f09-b022-41af04a6669b",
+		"name": "GameOfThrones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "168551"
+	},
+	"item": [
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "Create character",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5370cea7-48b3-42fd-8ca2-2ca80ff0c4fe\",\n    \"characterName\": \"Rodrik Cassel\",\n    \"nickname\": \"Rodrik Cassel\",\n    \"characterLink\": \"Rodrik Cassel\",\n    \"houses\": [\"House 1\", \"House 2\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost/character",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"character"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update character",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"characterName\": \"Rodrik Cassel\",\n    \"nickname\": \"Rodrik Cassel\",\n    \"characterLink\": \"Rodrik Cassel\",\n    \"allies\": [\"00a52213-12ac-4ac0-8126-a6db128608d8\", \"022e1b8b-ebcd-4f88-9e14-efa7cd624258\"],\n    \"houses\": [\"House 1\", \"House 2\"],\n    \"actors\": [\"000946f1-7b03-4e87-8cb2-6c0256d421f1\", \"0106d8ee-b24f-4093-8d0d-b89d23ea6009\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost/character/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"character",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "008635af-8873-444a-9cb0-7f13a3d05f08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete character",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/character/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"character",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "008635af-8873-444a-9cb0-7f13a3d05f08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/character",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"character"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search characters",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"Rodrik\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/character/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"character",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
