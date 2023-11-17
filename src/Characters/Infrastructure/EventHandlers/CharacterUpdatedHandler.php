@@ -9,6 +9,6 @@ final class CharacterUpdatedHandler implements MessageHandlerInterface
 {
     public function __invoke(CharacterUpdated $message): void
     {
-        print_r('CharacterDeleted');
+        print_r('CharacterUpdated');
     }
 }
